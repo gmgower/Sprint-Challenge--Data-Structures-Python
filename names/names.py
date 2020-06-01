@@ -61,10 +61,24 @@ f.close()
 duplicates = []  # Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
+# for name_1 in names_1:
+#     for name_2 in names_2:
+#         if name_1 == name_2:
+#             duplicates.append(name_1)
+
+# Initialize the BST with the first value in the name_1 array
+tree = BSTNode(names_1[0])
+
+# insert all values from names_1.txt into the tree
 for name_1 in names_1:
-    for name_2 in names_2:
-        if name_1 == name_2:
-            duplicates.append(name_1)
+    tree.insert(name_1)
+
+# if the tree contains any duplicates from names_1 array add it to the duplicates array
+for name_2 in names_2:
+    if tree.contains(name_2):
+        duplicates.append(name_2)
+
+
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
