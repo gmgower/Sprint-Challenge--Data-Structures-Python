@@ -31,19 +31,19 @@ class BSTNode:
 
     # Return True if the tree contains the value
     # False if it does not
-    def contains(self, target):
+    def dupes(self, target):
         if self.value == target:
             return True
 
         elif target > self.value:
             if self.right is not None:
-                return self.right.contains(target)
+                return self.right.dupes(target)
             else:
                 return False
 
         else:
             if self.left is not None:  # we have a left child
-                return self.left.contains(target)  # hand the target off teh left child
+                return self.left.dupes(target)  # hand the target off teh left child
             else:
                 return False
 
@@ -75,7 +75,7 @@ for name_1 in names_1:
 
 # if the tree contains any duplicates from names_1 array add it to the duplicates array
 for name_2 in names_2:
-    if tree.contains(name_2):
+    if tree.dupes(name_2):
         duplicates.append(name_2)
 
 
