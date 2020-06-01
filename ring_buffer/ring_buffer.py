@@ -13,7 +13,14 @@ class RingBuffer:
             #add item to the tail
             self.storage.add_to_tail(item)
             return
-
+        #if current has no value
+        if self.current is None:
+            self.current = self.storage.head
+        #sets the current value to the item
+        self.current.value = item
+        #set current to the next  value
+        self.current = self.current.next
+       
 
     def get(self):
         # create a blank array 
